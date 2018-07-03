@@ -20,6 +20,12 @@ root/vagrant
 * file location: /usr/libexec/qemu-kvm
 * add the iteam "qemu_binary" to the kali.json
 
+## Usage
+
+ ```
+ packer build kali.json -var "version=0.1"
+ ```
+
 ## References
 
 * https://github.com/tsondt/kali-mini-rolling-packer-vagrant

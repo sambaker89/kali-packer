@@ -23,7 +23,7 @@ root/vagrant
 ## Usage
 
  ```
- packer build kali.json -var "version=0.1"
+ packer build -var "version=0.1" kali.json
  ```
 
 ## References

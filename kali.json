@@ -1,10 +1,10 @@
 {
   "variables": {
     "vm_name": "kali-desktop",
-    "qemu_binary": "/usr/libexec/qemu-kvm",
+    "qemu_binary": "/usr/bin/qemu-system-x86_64",
     "version": "0.0",
     "disk_size": "40960",
-    "iso_checksum": "f9f8f6bf52b45e6c7ebdb862c7902e0bc2ef0c40660a46a7e3993d738dc2a055",
+    "iso_checksum": "5e790f78ba091387ccb403b4235d8660e2832b02e63d618ee11bc5627f3c2d8e",
     "iso_checksum_type": "sha256",
     "iso_url": "http://http.kali.org/kali/dists/kali-rolling/main/installer-amd64/current/images/netboot/mini.iso",
     "box_name" : "kali-linux-2.0-amd64-desktop.box",

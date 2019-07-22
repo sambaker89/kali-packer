@@ -8,7 +8,7 @@
 * Produces a vagrant box (https://www.vagrantup.com/)
 * libvirt/kvm installed on host
 
-##  tl;dr
+## 
 
 ```
 root/vagrant

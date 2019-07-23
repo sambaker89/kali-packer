@@ -43,7 +43,7 @@
         "install ",
         "preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/{{ user `config_file` }} ",
         "auto-install/enable=true ",
-
+        "netcfg//disalbe_autoconfig=true ",
 	      "debian-installer=en_US ",
         "locale=en_US ",
         "console-keymaps-at/keymap=us ",
@@ -51,7 +51,7 @@
         "netcfg/get_hostname={{ user `vm_name`}} ",
         "netcfg/get_domain=local.lon ",
         "<enter><wait10><wait10><wait10>",
-        "<enter><wait>"
+        "<enter><wait><enter><down><down><enter>"
         ],
       "qemuargs": [
            [ "-m", "1024m" ],

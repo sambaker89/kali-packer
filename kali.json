@@ -1,4 +1,4 @@
-{
+{ "_comments": "libvirt builder starts here",
   "variables": {
     "vm_name": "kali-rolling",
     "qemu_binary": "/usr/bin/qemu-system-x86_64",
@@ -10,27 +10,26 @@
     "dist_interface": "virto",
     "net_device": "virtio-net",
     "headless": "false",
-    "config_file": "preseed_1.cfg",
+    "config_file": "preseed.cfg",
     "shutdown_command": "echo 'vagrant' | sudo -S /sbin/shutdown -h 0",
     "guest_os_type": "debian7-64",
     "box_name" : "kali-linux-2.0-amd64-desktop.box",
     "box_desc" : "Kali Linux 2.0 64 Bit Desktop"
     },
-  "description": "{{user `box_desc`}}",
-  "_comments": "libvirt builder starts here",
+
+
   "builders": [
     {
       "type": "qemu",
-      "output_directory": "box/kali-qemu-{{user `version`}}",
+      "output_directory": "box/kali-qemu-{{ user `version` }}",
 
-      "vm_name": "{{user `vm_name`}}.qcow2",
-      "iso_url": "{{user `iso_url`}}",
-      "iso_checksum": "{{user `iso_checksum`}}",
-      "iso_checksum_type": "{{user `iso_checksum_type`}}",
-      "disk_size": "{{user `disk_size`}}",
-      "ssh_wait_timeout": "60m",
-
-      "disk_size": "{{user `disk_size`}}",
+      "vm_name": "{{ user `vm_name` }}.qcow2",
+      "iso_url": "{{ user `iso_url` }}",
+      "iso_checksum": "{{ user `iso_checksum` }}",
+      "iso_checksum_type": "{{ user `iso_checksum_type` }}",
+      "disk_size": "{{ user `disk_size` }}",
+      "net_device": "{{ user `net_device` }}",
+      "disk_interface": "{{ user `disk_interface` }}",
 
       "headless": "{{ user `headless`}}",
 
@@ -38,19 +37,19 @@
       "ssh_username": "root",
       "ssh_password": "vagrant",
       "ssh_wait_timeout": "10000s",
-      "net_device": "{{ user `net_device` }}",
-      "disk_interface": "{{ user `disk_interface` }}",
+
       "boot_command": [
         "<esc><wait>",
         "install ",
-        "preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/{{ user `config_file` }} <wait>",
-	      "debian-installer=en_US <wait>",
-        "locale=en_US <wait>",
-        "kbd-chooser/method=us <wait>",
-        "debconf/frontend=noninteractive ",
-        "console-setup/ask_detect=false <wait>",
+        "preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/{{ user `config_file` }} ",
+        "auto-install/enable=true ",
+
+	      "debian-installer=en_US ",
+        "locale=en_US ",
         "console-keymaps-at/keymap=us ",
-        "keyboard-configuration/xkb-keymap=us <wait>",
+        "keyboard-configuration/xkb-keymap=us ",
+        "netcfg/get_hostname={{ user `vm_name`}} ",
+        "netcfg/get_domain=local.lon ",
         "<enter><wait10><wait10><wait10>",
         "<enter><wait>"
         ],

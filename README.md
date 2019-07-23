@@ -32,7 +32,7 @@ kali_packer
 ## Usage
 
  ```
- packer build -var "version=0.1" kali.json
+ packer build -var "version=0.1" -var disk_size=60345 kali.json
  ```
 
 ## References

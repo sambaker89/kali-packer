@@ -16,13 +16,10 @@
     "box_name" : "kali-linux-2.0-amd64-desktop.box",
     "box_desc" : "Kali Linux 2.0 64 Bit Desktop"
     },
-
-
   "builders": [
     {
       "type": "qemu",
       "output_directory": "box/kali-qemu-{{ user `version` }}",
-
       "vm_name": "{{ user `vm_name` }}.qcow2",
       "iso_url": "{{ user `iso_url` }}",
       "iso_checksum": "{{ user `iso_checksum` }}",
@@ -30,20 +27,17 @@
       "disk_size": "{{ user `disk_size` }}",
       "net_device": "{{ user `net_device` }}",
       "disk_interface": "{{ user `disk_interface` }}",
-
       "headless": "{{ user `headless`}}",
-
       "http_directory": "http",
       "ssh_username": "root",
       "ssh_password": "vagrant",
       "ssh_wait_timeout": "10000s",
-
       "boot_command": [
         "<esc><wait>",
         "install ",
         "preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/{{ user `config_file` }} ",
         "auto-install/enable=true ",
-        "netcfg//disalbe_autoconfig=true ",
+        "netcfg/disable_autoconfig=false ",
 	      "debian-installer=en_US ",
         "locale=en_US ",
         "console-keymaps-at/keymap=us ",
@@ -51,7 +45,7 @@
         "netcfg/get_hostname={{ user `vm_name`}} ",
         "netcfg/get_domain=local.lon ",
         "<enter><wait10><wait10><wait10>",
-        "<enter><wait><enter><down><down><enter>"
+        "<enter><wait>"
         ],
       "qemuargs": [
            [ "-m", "1024m" ],
@@ -60,7 +54,6 @@
            [ "-vga", "qxl" ]
       ]
     }
-
   ]
 
 }

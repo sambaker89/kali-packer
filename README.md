@@ -1,17 +1,26 @@
 # Kali Mini
 
-## What
+## Description
 
-* Small Kali linux (https://www.kali.org/)
+* Rolling KALI linux (https://www.kali.org/)
 * Built for KVM
-* Minimal kali linux rolling
-* Produces a vagrant box (https://www.vagrantup.com/)
+* Build QCOW2 image files from ISO
 * libvirt/kvm installed on host
 
-## 
+## Setup the PACKER environment (in the execution shell)
 
 ```
-root/vagrant
+ export PACKER_LOG="1"
+ export PACKER_LOG_PATH='./logs/packerlog.txt'
+```
+## Directory tree Setup
+
+```
+kali_packer
+  logs
+  box
+  tmp
+  http
 ```
 
 ## Qemu location

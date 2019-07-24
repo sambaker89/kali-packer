@@ -11,7 +11,7 @@
     "net_device": "virtio-net",
     "headless": "false",
     "config_file": "preseed.cfg",
-    "shutdown_command": "echo 'packer' | sudo -S /sbin/shutdown -h 0",
+    "shutdown_command": "echo 'vagrant' | sudo -S /sbin/shutdown -h 0",
     "guest_os_type": "debian7-64",
     "box_name" : "kali-linux-2.0-amd64-desktop.box",
     "box_desc" : "Kali Linux 2.0 64 Bit Desktop"

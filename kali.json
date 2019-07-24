@@ -11,7 +11,7 @@
     "net_device": "virtio-net",
     "headless": "false",
     "config_file": "preseed.cfg",
-    "shutdown_command": "echo 'vagrant' | sudo -S /sbin/shutdown -h 0",
+    "shutdown_command": "echo 'packer' | sudo -S /sbin/shutdown -h 0",
     "guest_os_type": "debian7-64",
     "box_name" : "kali-linux-2.0-amd64-desktop.box",
     "box_desc" : "Kali Linux 2.0 64 Bit Desktop"
@@ -29,9 +29,11 @@
       "disk_interface": "{{ user `disk_interface` }}",
       "headless": "{{ user `headless`}}",
       "http_directory": "http",
+      "shutdown_command": "{{ user `shutdown_command` }}",
       "ssh_username": "root",
       "ssh_password": "vagrant",
       "ssh_wait_timeout": "10000s",
+      "boot_wait": "10s",
       "boot_command": [
         "<esc><wait>",
         "install ",
@@ -45,7 +47,7 @@
         "netcfg/get_hostname={{ user `vm_name`}} ",
         "netcfg/get_domain=local.lon ",
         "<enter><wait10><wait10><wait10>",
-        "<enter><wait>"
+        "<enter><wait10>"
         ],
       "qemuargs": [
            [ "-m", "1024m" ],

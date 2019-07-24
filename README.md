@@ -35,6 +35,10 @@ kali_packer
  packer build -var "version=0.1" -var disk_size=60345 kali.json
  ```
 
+## Notes
+* disable any extra DHCP server on the KVM
+* ensure only one active DHCP network interface
+
 ## References
 
 * https://github.com/tsondt/kali-mini-rolling-packer-vagrant
